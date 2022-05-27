@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Mostrar Lista</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <a href="{% url 'lista:mostrar_listas' %}">Regresar</a>
+            <h1>{{ name }}</h1>
+            <ul class="list-group">
+                {% for elemento in datos %}
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    {{ elemento }}
+                  </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+

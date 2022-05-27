@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Crear Lista</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            {% if error %}
+                <div class="alert alert-warning" role="alert">
+                    {{ error }}
+                </div>  
+            {% endif %}
+            <a href="{% url 'lista:mostrar_listas' %}">Regresar</a>
+
+            <form action="{% url 'lista:crear_lista' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name_lista" class="form-label">Nombre de lista</label>
+                    <input type="text" class="form-control" id="name_lista" aria-describedby="name_help" name="name">
+                <div id="name_help" class="form-text">Debe llevar un nombre de lista</div>
+                <div class="mb-3">
+                    <label for="elementos_lista" class="form-label">Elementos</label>
+                    <input type="text" class="form-control" id="elementos_lista" name="elementos">
+                  </div>
+                
+                <button type="submit" class="btn btn-primary">Crear</button>
+              </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
