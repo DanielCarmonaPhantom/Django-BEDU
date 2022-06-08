@@ -1,1 +1,1 @@
-# Django-BEDU
+# Django BEDU
